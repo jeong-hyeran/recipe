@@ -3,15 +3,15 @@ package com.itbank.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.itbank.component.FileComponent;
 import com.itbank.component.HashComponent;
+import com.itbank.component.MemberFileComponent;
 import com.itbank.model.MemberDTO;
 import com.itbank.repository.MemberDAO;
 
 @Service
 public class MemberService {
 
-	@Autowired private FileComponent fileComponent;
+	@Autowired private MemberFileComponent fileComponent;
 	@Autowired private HashComponent hashComponent;
 	@Autowired private MemberDAO memberDAO;
 	

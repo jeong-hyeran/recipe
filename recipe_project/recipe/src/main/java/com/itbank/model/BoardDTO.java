@@ -11,6 +11,7 @@ package com.itbank.model;
     */
 
 import java.sql.Date;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,7 +22,7 @@ public class BoardDTO {
 	private String title;
 	private String content;
 	private String fileName;
-	private MultipartFile upload;
+	private List<MultipartFile> upload;
 	private Date wdate;
 	private int viewCount;
 	private int likeCount;
@@ -59,10 +60,10 @@ public class BoardDTO {
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
-	public MultipartFile getUpload() {
+	public List<MultipartFile> getUpload() {
 		return upload;
 	}
-	public void setUpload(MultipartFile upload) {
+	public void setUpload(List<MultipartFile> upload) {
 		this.upload = upload;
 	}
 	public Date getWdate() {
@@ -95,7 +96,6 @@ public class BoardDTO {
 	public void setMember_username(String member_username) {
 		this.member_username = member_username;
 	}
-	
-	
-	
+
+
 }
