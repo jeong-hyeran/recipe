@@ -15,4 +15,6 @@ public interface BoardDAO {
 
 	int maxIdx();
 
+	BoardDTO selectOne(int idx);
+
 }

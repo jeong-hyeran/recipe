@@ -20,6 +20,7 @@ public class BoardDTO {
 	private int idx;
 	private int member_idx;
 	private String title;
+	private List<String> contents;
 	private String content;
 	private String fileName;
 	private List<MultipartFile> upload;
@@ -47,6 +48,12 @@ public class BoardDTO {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public List<String> getContents() {
+		return contents;
+	}
+	public void setContents(List<String> contents) {
+		this.contents = contents;
 	}
 	public String getContent() {
 		return content;
@@ -96,6 +103,8 @@ public class BoardDTO {
 	public void setMember_username(String member_username) {
 		this.member_username = member_username;
 	}
-
+	
+	
+	
 
 }

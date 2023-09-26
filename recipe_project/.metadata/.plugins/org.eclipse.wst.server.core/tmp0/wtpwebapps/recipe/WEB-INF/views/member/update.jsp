@@ -8,7 +8,7 @@
 		<table>
 			<tr>
 				<td style="border-right: 1px solid grey">
-					<img src="${cpath }/upload/${login.fileName }" width="80" height="70">
+					<img src="${cpath }/profile/${login.fileName }" width="80" height="70">
 					
 				</td>
 				<td><input type="file" name="upload"></td>
@@ -20,7 +20,7 @@
 			</tr>
 			<tr>
 				<th>비밀번호</th>			
-				<td><input type="password" name="userpw" placeholder="변경할 비밀번호"></td>
+				<td><input type="password" name="userpw" placeholder="변경할 비밀번호" required></td>
 			</tr>
 			<tr>
 				<th>이름</th>

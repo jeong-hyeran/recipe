@@ -57,17 +57,29 @@ public class MemberService {
 
 	public int memberUpdate(MemberDTO dto) {
 		MemberDTO login = memberDAO.selectOneByIdx(dto.getIdx());
-		String currentFileName = login.getFileName();
-		if(currentFileName != "image.jpg") {
-			fileComponent.removeFile(currentFileName);
+		String currentFileName = login.getFileName();		// 현재 파일 이름을 가져와서
+		String fileName = "";
+		int row = 0;
+		if(login != null) {				
+			if(dto.getUpload().getSize() != 0) {					// 수정할 파일이 들어왔으면
+				if(currentFileName != "image.jpg") {				// 현재 파일 이름이 기본 이미지가 아니라면
+				fileComponent.removeFile(currentFileName);			// 삭제하고
+				}
+			fileName += fileComponent.upload(dto.getUpload());		// 파일 이름을 새로 생성해주고	
+				
+			}
+			else {									// 수정할 파일이 들어오지 않았으면
+				fileName += currentFileName;		// 파일 이름에 현재 파일 이름을 그대로 넣어준다
+			}
+		
+			String salt = hashComponent.getRandomSalt();
+			String hash = hashComponent.getHash(dto.getUserpw(), salt);
+			dto.setFileName(fileName);
+			dto.setSalt(salt);
+			dto.setUserpw(hash);
+			row = memberDAO.memberUpdate(dto);			
 		}
-		String fileName = fileComponent.upload(dto.getUpload());
-		String salt = hashComponent.getRandomSalt();
-		String hash = hashComponent.getHash(dto.getUserpw(), salt);
-		dto.setFileName(fileName);
-		dto.setSalt(salt);
-		dto.setUserpw(hash);
-		return memberDAO.memberUpdate(dto);
+		return row;
 	}
 
 	public int memberDelete(HashMap<String, String> param) {
