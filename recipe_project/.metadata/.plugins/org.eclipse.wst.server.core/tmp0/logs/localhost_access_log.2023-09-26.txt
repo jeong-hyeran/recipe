@@ -148,3 +148,16 @@
 0:0:0:0:0:0:0:1 - - [26/Sep/2023:17:51:07 +0900] "GET /recipe/member/updateCon HTTP/1.1" 200 1177
 0:0:0:0:0:0:0:1 - - [26/Sep/2023:17:51:10 +0900] "POST /recipe/member/updateCon HTTP/1.1" 200 1852
 0:0:0:0:0:0:0:1 - - [26/Sep/2023:17:51:10 +0900] "GET /recipe/upload/20230925202342_ HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [26/Sep/2023:18:05:31 +0900] "GET /recipe/ HTTP/1.1" 200 946
+0:0:0:0:0:0:0:1 - - [26/Sep/2023:18:05:34 +0900] "GET /recipe/member/logout HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [26/Sep/2023:18:05:34 +0900] "GET /recipe/ HTTP/1.1" 200 851
+0:0:0:0:0:0:0:1 - - [26/Sep/2023:18:05:35 +0900] "GET /recipe/member/join HTTP/1.1" 200 1512
+0:0:0:0:0:0:0:1 - - [26/Sep/2023:18:06:00 +0900] "POST /recipe/member/join HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [26/Sep/2023:18:06:00 +0900] "GET /recipe/member/login HTTP/1.1" 200 1145
+0:0:0:0:0:0:0:1 - - [26/Sep/2023:18:06:05 +0900] "POST /recipe/member/login HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [26/Sep/2023:18:06:05 +0900] "GET /recipe/ HTTP/1.1" 200 948
+0:0:0:0:0:0:0:1 - - [26/Sep/2023:18:06:09 +0900] "GET /recipe/member/mypage HTTP/1.1" 200 2183
+0:0:0:0:0:0:0:1 - - [26/Sep/2023:18:06:09 +0900] "GET /recipe/upload/image.jpg HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [26/Sep/2023:18:06:15 +0900] "GET /recipe/upload/image.jpg HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [26/Sep/2023:18:07:59 +0900] "GET /recipe/member/mypage HTTP/1.1" 200 2184
+0:0:0:0:0:0:0:1 - - [26/Sep/2023:18:07:59 +0900] "GET /recipe/profile/image.jpg HTTP/1.1" 200 9315
