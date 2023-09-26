@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="../header.jsp" %>
+<div id="login">
+<h3>로그인</h3>
+
+<form method="POST" enctype="multipart/form-data">
+	<p><input type="text" name="userid"  placeholder="ID" required autofocus autocomplete="off"></p>
+	<p><input type="password" name="userpw" placeholder="Password" required></p>
+	<p><input type="submit" value="로그인"></p>
+</form>
+
+</div>
+<script>
+function Input(inputElement) {
+    const value = inputElement.value;
+    // 정규 표현식을 사용하여 특수문자와 한글 문자를 확인
+    const koreanPattern = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
+    
+    if (koreanPattern.test(value)) {
+        // 한글 문자가 포함되어 있다면 해당 문자를 제거
+        alert('한글입력 불가')
+        inputElement.value = value.replace(koreanPattern, '');
+    }
+
+</script>
+</body>
+</html>
