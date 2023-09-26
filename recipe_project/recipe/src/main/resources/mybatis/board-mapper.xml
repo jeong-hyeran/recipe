@@ -18,4 +18,19 @@
 			)
 	</insert>
 	
+	<select id="selectAll" resultType="board">
+	select 
+	    b.*,
+	    m.username as member_username,
+	    m.fileName as member_fileName
+	    from board B
+	        join member m
+	        on m.idx = b.member_idx
+	        	order by b.idx desc
+	</select>
+	<select id="maxIdx" resultType="int">
+		select
+   			 max(idx) from board
+    </select>
+	
 </mapper>

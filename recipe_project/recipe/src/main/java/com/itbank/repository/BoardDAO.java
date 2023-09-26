@@ -1,5 +1,7 @@
 package com.itbank.repository;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.itbank.model.BoardDTO;
@@ -8,5 +10,9 @@ import com.itbank.model.BoardDTO;
 public interface BoardDAO {
 
 	int insertBoard(BoardDTO dto);
+
+	List<BoardDTO> selectAll();
+
+	int maxIdx();
 
 }
