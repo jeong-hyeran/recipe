@@ -10,7 +10,6 @@
 <meta charset="UTF-8">
 <title>recipe</title>
 <style>
-
 	table{
 		border : 2px solid black;
 		border-collapse: collapse;
@@ -25,6 +24,28 @@
 	td{
 		border: 1px solid black;
 		padding: 10px;
+	}
+	textarea {
+		margin: 10px 5px;
+	}
+	#boardView{
+		margin: auto;
+	}
+	#boardTitle {
+		border: 1px solid #eee;
+		width: 800px;
+		padding: 5px 15px;
+		line-height: 2rem;
+		margin: 5px;
+		text-align: center;
+	}
+	#boardContent {
+		border: 1px solid #eee;
+		width: 800px;
+		padding: 15px;
+		line-height: 2rem;
+		margin: 5px;
+		text-align: center;
 	}
 </style>
 </head>

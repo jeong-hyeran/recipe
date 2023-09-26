@@ -27,7 +27,9 @@
 			<c:forEach var="dto" items="${list }">
 			<tr>
 				<td>${dto.idx }</td>
-				<td>${dto.title }</td>
+				<td>
+					<a href="${cpath }/board/view/${dto.idx}">${dto.title }</a>
+				</td>
 				<td>${dto.member_username }</td>
 				<td>${dto.wdate }</td>
 				<td>👁️‍🗨️${dto.viewCount }</td>

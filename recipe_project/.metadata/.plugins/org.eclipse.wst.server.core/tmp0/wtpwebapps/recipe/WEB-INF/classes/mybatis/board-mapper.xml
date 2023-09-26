@@ -32,5 +32,9 @@
 		select
    			 max(idx) from board
     </select>
+    
+    <select id="selectOne" resultType="board">
+    	select * from board where idx = #{idx}
+    </select>
 	
 </mapper>

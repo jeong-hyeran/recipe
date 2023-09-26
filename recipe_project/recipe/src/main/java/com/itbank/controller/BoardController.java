@@ -1,6 +1,7 @@
 package com.itbank.controller;
 
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -40,6 +42,23 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		List<BoardDTO> list = boardService.selectAll();
 		mav.addObject("list",list);
+		return mav;
+	}
+	
+	@GetMapping("/view/{idx}")
+	public ModelAndView view(@PathVariable("idx") int idx) {
+		ModelAndView mav = new ModelAndView("board/view");
+		BoardDTO dto = boardService.selectOne(idx);
+		
+		String[] content = dto.getContent().split(",");
+		List<String> contentList = Arrays.asList(content);
+		String[] fileName = dto.getFileName().split(",");
+		List<String> fileNameList = Arrays.asList(fileName);
+		
+		mav.addObject("dto",dto);
+		mav.addObject("contentList",contentList);
+		mav.addObject("fileNameList",fileNameList);
+		
 		return mav;
 	}
 }
