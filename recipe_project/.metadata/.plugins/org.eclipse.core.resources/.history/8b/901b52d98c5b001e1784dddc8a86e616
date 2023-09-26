@@ -1,0 +1,35 @@
+package com.itbank.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.itbank.component.FileComponent;
+import com.itbank.component.HashComponent;
+import com.itbank.model.MemberDTO;
+import com.itbank.repository.MemberDAO;
+
+@Service
+public class MemberService {
+
+	@Autowired private FileComponent fileComponent;
+	@Autowired private HashComponent hashComponent;
+	@Autowired private MemberDAO memberDAO;
+	
+	public int join(MemberDTO dto) {
+		String salt = hashComponent.getRandomSalt();
+		String hash = hashComponent.getHash(dto.getUserpw(), salt);
+		dto.setSalt(salt);
+		dto.setUserpw(hash);
+		String fileName = fileComponent.upload(dto.getUpload());
+		dto.setFileName(fileName);
+		return memberDAO.insertMember(dto);
+	}
+
+	public MemberDTO selectOneById(MemberDTO dto) {
+		MemberDTO login;
+		int idx = memberDAO.selectOneById(dto.getIdx());
+		return login;
+	}
+	
+	
+}

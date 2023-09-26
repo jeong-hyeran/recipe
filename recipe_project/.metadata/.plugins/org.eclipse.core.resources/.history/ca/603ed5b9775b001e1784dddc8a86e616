@@ -1,0 +1,18 @@
+package com.itbank.component;
+
+import java.io.File;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class FileComponent {
+	
+	private String saveDirectory="C:\\recipe";
+	
+	public FileComponent() {
+		File dir = new File(saveDirectory);
+		if(dir.exists() == false) {
+			dir.mkdirs();
+		}
+	}
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0/EN"
+		"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itbank.repository.BoardDAO">
+	<insert id="insertMember" parameterType="board">
+		insert into board (
+			userid, 
+			userpw, 
+			salt, 
+			username, 
+			email, 
+			<if test="fileName != null">
+				fileName, 
+			</if>
+			<if test="memo != null">
+			memo
+			</if>
+			) values (
+			#{userid}, 
+			#{userpw}, 
+			#{salt}, 
+			#{username}, 
+			#{email}, 
+			<if test="fileName != null">
+			#{fileName},
+			</if>
+			<if test="memo != null">
+			#{memo}
+			</if>
+			)
+	</insert>
+	
+</mapper>

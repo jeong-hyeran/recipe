@@ -1,0 +1,34 @@
+package com.itbank.model;
+/*   
+  	idx                 number          default board_seq.nextval primary key,
+    member_idx          number          not null,
+    title               varchar2(100)   not null,
+    content             varchar2(4000)  not null,
+    fileName            varchar2(300)   not null,
+    wdate               date            default sysdate,
+    viewCount           number          default 0,
+    likeCount           number          default 0,
+    */
+
+import java.sql.Date;
+
+import org.springframework.web.multipart.MultipartFile;
+
+public class BoardDTO {
+
+	private int idx;
+	private int member_idx;
+	private String title;
+	private String content;
+	private String fileName;
+	private MultipartFile upload;
+	private Date wdate;
+	private int viewCount;
+	private int likeCount;
+	
+	private String member_userid;
+	private String member_username;
+	
+	
+	
+}

@@ -1,0 +1,15 @@
+
+9월 25, 2023 15:37:38.11 NEW SESSION
+9월 25, 2023 15:37:38.11 [12380:12004:0925/153738.110:ERROR:device_event_log_impl.cc(222)] [15:37:38.109] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+9월 25, 2023 15:37:38.59 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 25, 2023 15:42:27.35 [10532:9980:0925/154227.358:ERROR:device_event_log_impl.cc(222)] [15:42:27.358] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+9월 25, 2023 15:42:27.77 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 25, 2023 16:00:53.15 [12260:17812:0925/160053.146:ERROR:device_event_log_impl.cc(222)] [16:00:53.146] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+9월 25, 2023 16:00:53.25 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 25, 2023 21:54:53.05 [12260:15824:0925/215453.051:ERROR:connection_factory_impl.cc(471)] ConnectionHandler failed with net error: -2
+9월 25, 2023 21:55:55.57 [12260:15824:0925/215555.579:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 25, 2023 22:02:24.58 [12260:15824:0925/220224.586:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 25, 2023 22:03:06.19 [12260:15824:0925/220306.191:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+9월 25, 2023 22:04:36.51 [12260:15824:0925/220436.517:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 25, 2023 22:05:08.60 [12260:15824:0925/220508.604:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+9월 25, 2023 22:09:25.58 [12260:15824:0925/220925.587:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
