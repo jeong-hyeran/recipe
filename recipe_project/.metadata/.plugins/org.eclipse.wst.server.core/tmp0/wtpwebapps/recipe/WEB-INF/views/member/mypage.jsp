@@ -6,7 +6,11 @@
 	<table>
 		<tr>
 			<td style="border-right: 1px solid grey">
+<<<<<<< HEAD
 				<img src="${cpath }/profile/${login.fileName }" width="80" height="70">
+=======
+				<img src="${cpath }/upload/${login.fileName }" width="80" height="70">
+>>>>>>> b003ec68d2254d6773d6dc68ed57483fa46b94cb
 			</td>
 			<td>${login.userid }</td>
 		</tr>
