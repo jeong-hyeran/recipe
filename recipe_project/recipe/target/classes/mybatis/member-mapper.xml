@@ -36,11 +36,6 @@
 		select * from member where userid = #{userid}
 	</select>
 	
-		
-	<select id="selectOneByIdx" parameterType="int" resultType="member">
-		select * from member where idx=#{idx}
-	</select>
-	
 	<update id="memberUpdate" parameterType="member">
 		update member
 			set userpw=#{userpw}, salt=#{salt}, fileName=#{fileName}, email=#{email}, memo=#{memo}
@@ -50,4 +45,17 @@
 	<delete id="memberDelete" parameterType="HashMap">
 		delete member where userid=#{userid}
 	</delete>
+	
+	<select id="selectOneByIdx" parameterType="int" resultType="member">
+		select * from member where idx=#{idx}	
+	</select>
+	
+	<select id="selectBoardByIdx" parameterType="int" resultType="board">
+		select 
+			B.* 
+			from member M
+			join board B
+			on M.idx = B.member_idx
+			where M.idx=#{idx}
+	</select>
 </mapper>

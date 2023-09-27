@@ -1,6 +1,7 @@
 package com.itbank.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.itbank.model.BoardDTO;
 import com.itbank.model.MemberDTO;
 import com.itbank.service.MemberService;
 
@@ -49,7 +51,15 @@ public class MemberController {
 	}
 	
 	@GetMapping("/mypage")
-	public void mypage() {}
+	public ModelAndView mypage(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		MemberDTO login = (MemberDTO)session.getAttribute("login");
+		if(login != null) {
+			List<BoardDTO> list = memberService.selectBoardByIdx(login.getIdx());			
+			mav.addObject("list", list);
+		}
+		return mav;
+	}
 	
 	@GetMapping("/updateCon")
 	public String update() {
@@ -103,6 +113,17 @@ public class MemberController {
 			return mav;
 		}
 		mav.addObject("msg", "비밀번호를 다시 확인해주세요");
+		return mav;
+	}
+	
+	@GetMapping("view/{member_idx}")
+	public ModelAndView view(@PathVariable("member_idx") int idx) {
+		ModelAndView mav = new ModelAndView("member/view");
+		MemberDTO dto = memberService.selectOneByIdx(idx);
+		List<BoardDTO> list = memberService.selectBoardByIdx(idx);
+		
+		mav.addObject("dto", dto);
+		mav.addObject("list", list);
 		return mav;
 	}
 }

@@ -60,8 +60,6 @@
 		const p = document.createElement('p')
 		const p1 = document.createElement('p')
 		
-		const br = document.createElement('br')
-
 		const input_file = document.createElement('input')
 		input_file.type = 'file'
 		input_file.name = 'upload'

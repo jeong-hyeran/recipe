@@ -47,23 +47,13 @@
 		margin: 5px;
 		text-align: center;
 	}
-	ul{
-		list-style: none;
-		display: flex;
-		padding: 5px 20px;
-		justify-content: space-around;
+	#boardUserid {
+		border: 1px solid #eee;
+		width: 800px;
+		padding: 5px 15px;
+		line-height: 2rem;
 		margin: 5px;
-	}
-	li{
-		margin: 5px;
-		padding: 5px;
-	}
-	a{
-		all : unset;
-		cursor: pointer;
-	}
-	a:hover {
-		text-decoration: underline;
+		text-align: center;
 	}
 </style>
 </head>
@@ -97,4 +87,3 @@
 		</ul>
 	</nav>
 </header>
-<hr>

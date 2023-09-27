@@ -1,12 +1,14 @@
 package com.itbank.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itbank.component.MemberFileComponent;
 import com.itbank.component.HashComponent;
+import com.itbank.model.BoardDTO;
 import com.itbank.model.MemberDTO;
 import com.itbank.repository.MemberDAO;
 
@@ -98,6 +100,16 @@ public class MemberService {
 			return memberDAO.memberDelete(param);
 		}
 		return row;
+	}
+
+	public MemberDTO selectOneByIdx(int idx) {
+		MemberDTO dto = memberDAO.selectOneByIdx(idx);
+		return dto;
+	}
+
+	public List<BoardDTO> selectBoardByIdx(int idx) {
+		List<BoardDTO> list = memberDAO.selectBoardByIdx(idx);
+		return list;
 	}
 	
 	

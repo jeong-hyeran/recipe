@@ -1,5 +1,0 @@
-package com.itbank.repository;
-
-public interface BoardDAO {
-
-}

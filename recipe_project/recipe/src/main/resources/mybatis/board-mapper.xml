@@ -21,8 +21,7 @@
 	<select id="selectAll" resultType="board">
 	select 
 	    b.*,
-	    m.username as member_username,
-	    m.fileName as member_fileName
+	    m.username as member_username
 	    from board B
 	        join member m
 	        on m.idx = b.member_idx
@@ -43,6 +42,16 @@
 		        join member m
 		        on m.idx = b.member_idx
 		        	where b.idx=#{idx}
-	    </select>
+	</select>
 	
+	
+	<update id="boardUpdate" parameterType="board">
+		update board
+			set content=#{content}, fileName=#{fileName}, title=#{title}
+			where idx=#{idx}
+	</update>
+	
+	<delete id="boardDelete" parameterType="int">
+		delete board where idx=#{idx}
+	</delete>
 </mapper>

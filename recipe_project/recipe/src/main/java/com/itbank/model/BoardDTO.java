@@ -28,6 +28,7 @@ public class BoardDTO {
 	private int viewCount;
 	private int likeCount;
 	
+	private String member_fileName;
 	private String member_userid;
 	private String member_username;
 	
@@ -102,6 +103,12 @@ public class BoardDTO {
 	}
 	public void setMember_username(String member_username) {
 		this.member_username = member_username;
+	}
+	public String getMember_fileName() {
+		return member_fileName;
+	}
+	public void setMember_fileName(String member_fileName) {
+		this.member_fileName = member_fileName;
 	}
 	
 	

@@ -25,6 +25,10 @@ public class MemberDTO {
 	private MultipartFile upload;
 	private String memo;
 	
+	// 조인
+	private String board_title;
+	private String board_viewCount;
+	private String board_wdate;
 	
 	public int getIdx() {
 		return idx;
@@ -79,6 +83,24 @@ public class MemberDTO {
 	}
 	public void setMemo(String memo) {
 		this.memo = memo;
+	}
+	public String getBoard_title() {
+		return board_title;
+	}
+	public void setBoard_title(String board_title) {
+		this.board_title = board_title;
+	}
+	public String getBoard_viewCount() {
+		return board_viewCount;
+	}
+	public void setBoard_viewCount(String board_viewCount) {
+		this.board_viewCount = board_viewCount;
+	}
+	public String getBoard_wdate() {
+		return board_wdate;
+	}
+	public void setBoard_wdate(String board_wdate) {
+		this.board_wdate = board_wdate;
 	}
 	
 	

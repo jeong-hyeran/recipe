@@ -24,6 +24,21 @@
 			<td>${login.memo }</td>
 		</tr>
 	</table>
+
+	<!-- 내가 쓴 글 목록 -->
+	<table>	
+	<c:forEach var="dto" items="${list }">
+		<tr>
+			<td>
+				<a href="${cpath }/board/view/${dto.idx}">${dto.title }</a>
+			</td>
+			<td>${dto.wdate }</td>
+			<td>${dto.viewCount }</td>
+			<td><a href="${cpath }/board/update/${dto.idx}">수정</a></td>
+			<td><a href="${cpath }/board/delete/${dto.idx}"><span id="removeBtn">x</span></a></td>
+		</tr>
+	</c:forEach>
+	</table>
 </div>
 
 <p>
@@ -32,29 +47,32 @@
 </p>
 
 <script>
-	const updateBtn = document.getElementById('updateBtn')
+
+	const updateBtn = document.getElementById('updateBtn');
+	const deleteBtn = document.getElementById('deleteBtn');
+	const removeBtn = document.getElementById('removeBtn');
+
+	updateBtn.addEventListener('click', function(event) {
+	  const flag = confirm('비밀번호 확인 후 가능합니다. 계속하시겠습니까?');
+	  if (!flag) {
+	    event.preventDefault(); // 취소를 선택한 경우에만 기본 동작 취소
+	  }
+	});
+
+	deleteBtn.addEventListener('click', function(event) {
+	  const flag = confirm('정말 삭제하시겠습니까?');
+	  if (!flag) {
+	    event.preventDefault(); // 취소를 선택한 경우에만 기본 동작 취소
+	  }
+	});
 	
-	const updateHandler = function(event) {
-		event.preventDefault()
-		const url = event.target.parentNode.href
-		const flag = confirm('비밀번호 확인 후 가능합니다')
-		if(flag) {
-			location.href = url 
-		}
-	}
-	updateBtn.onclick = updateHandler
+	removeBtn.addEventListener('click', function(event) {
+		  const flag = confirm('정말 삭제하시겠습니까?');
+		  if (!flag) {
+		    event.preventDefault(); // 취소를 선택한 경우에만 기본 동작 취소
+		  }
+		});
 	
-	const deleteBtn = document.getElementById('deleteBtn')
-	const deleteHandler = function(event) {
-		event.preventDefault()
-		const url = event.target.parentNode.href
-		const flag = confirm('정말 삭제하시겠습니까?')
-		if(flag) {
-			location.href = url
-		}
-	}
-	
-	deleteBtn.onclick = deleteHandler
 </script>
 </body>
 </html>

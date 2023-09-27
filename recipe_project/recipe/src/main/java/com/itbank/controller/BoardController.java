@@ -1,6 +1,7 @@
 package com.itbank.controller;
 
 import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,6 @@ public class BoardController {
 		mav.addObject("dto",dto);
 		mav.addObject("contentList",contentList);
 		mav.addObject("fileNameList",fileNameList);
-		System.out.println(fileNameList);
 		return mav;
 	}
 	
@@ -68,6 +68,22 @@ public class BoardController {
 		mav.addObject("contentList", contentList);
 		mav.addObject("fileNameList", fileNameList);
 		return mav;
+	}
+	
+	@PostMapping("/update/{idx}")
+	public ModelAndView update(@PathVariable("idx") int idx, BoardDTO dto) {
+		ModelAndView mav = new ModelAndView("redirect:/board/view/{idx}");
+		int row = boardService.boardUpdate(dto);
+		System.out.println(row + "행이 업데이트 되었습니다");
+		return mav;
+	}
+	
+	@GetMapping("delete/{idx}")
+	public String delete(@PathVariable("idx")int idx) {
+		BoardDTO dto = boardService.selectOne(idx);
+		int row = boardService.boardDelete(dto);
+		System.out.println(row + "행이 삭제되었습니다");
+		return "redirect:/board/list";
 	}
 	
 	

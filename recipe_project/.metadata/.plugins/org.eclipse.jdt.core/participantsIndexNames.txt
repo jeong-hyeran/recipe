@@ -1,7 +1,0 @@
-INDEX VERSION 1.131
-C:\Users\Á¤Çý¶õ\Desktop\project\recipe_project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\550076643.index
-\recipe\src\main\java
-C:\Users\Á¤Çý¶õ\Desktop\project\recipe_project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1885178935.index
-\recipe\src\main\java
-C:\Users\Á¤Çý¶õ\Desktop\project\recipe_project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1766936010.index
-\recipe\src\main\java
