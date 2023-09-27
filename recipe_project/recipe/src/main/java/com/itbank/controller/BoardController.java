@@ -81,9 +81,8 @@ public class BoardController {
 		}
 		return null;
 	}
-//	@GetMapping("/searchList")
-//	public void excludeSearch() {};
-	// 제어할 검색어가 있을때
+
+	// 제외할 검색어가 있을때
 	@PostMapping("/searchList")
 	public ModelAndView excludeSearch(String keyword, String excludeKeyword) {
 		ModelAndView mav = new ModelAndView("board/searchList");

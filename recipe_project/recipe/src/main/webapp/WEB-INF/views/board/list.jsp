@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
-<div id="boardList">
+<div class="boardList">
 <h3>글목록</h3>
 
-<div id="search">
+<div class="boardSearch">
 	<form method="POST" action="${cpath }/board/search">
 		<p>
 			<input type="search" name="keyword" placeholder="재료를 검색하세요" autofocus>

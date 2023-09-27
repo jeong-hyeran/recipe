@@ -22,6 +22,8 @@ public class BoardDTO {
 	private String title;
 	private List<String> contents;
 	private String content;
+	private List<String> ingredients;
+	private String ingredient;
 	private String fileName;
 	private List<MultipartFile> upload;
 	private Date wdate;
@@ -103,7 +105,19 @@ public class BoardDTO {
 	public void setMember_username(String member_username) {
 		this.member_username = member_username;
 	}
-	
+	public List<String> getIngredients() {
+		return ingredients;
+	}
+	public void setIngredients(List<String> ingredients) {
+		this.ingredients = ingredients;
+	}
+	public String getIngredient() {
+		return ingredient;
+	}
+	public void setIngredient(String ingredient) {
+		this.ingredient = ingredient;
+	}
+
 	
 	
 

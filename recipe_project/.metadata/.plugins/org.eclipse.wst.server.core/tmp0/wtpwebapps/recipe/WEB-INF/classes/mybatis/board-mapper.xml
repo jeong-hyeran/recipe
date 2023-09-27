@@ -8,11 +8,13 @@
 		insert into board (
 			member_idx, 
 			title, 
+			ingredient, 
 			content, 
 			fileName 
 			) values (
 			#{member_idx}, 
 			#{title}, 
+			#{ingredient}, 
 			#{content}, 
 			#{fileName} 
 			)

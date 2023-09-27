@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
-<div id="boardList">
+<div class="boardList">
 <h3>글목록</h3>
 
-	<div style="font-size: 0.7rem;">'${keyword }'를 포함한 레시피</div>
+	<div style="font-size: 0.7rem;">'${keyword }'를 포함한 레시피 <span id="restore">X</span></div>
 	<c:if test="${not empty excludeKeyword }">
-		<div style="font-size: 0.7rem;">'${excludeKeyword }'를 제외한 레시피</div>
+		<div style="font-size: 0.7rem;">'${excludeKeyword }'를 제외한 레시피	 <span id="restore">X</span></div>
 	</c:if>
-	<div id="search">
+	<div class="boardSearch">
 	
 	<form method="POST" action="${cpath }/board/searchList">
 		 <p>
@@ -55,5 +55,12 @@
 	<li><a href="${cpath }/board/write"><button>글작성</button></a></li>
 </ul>
 </div>
+
+<script>
+    // "exclude" div를 클릭하면 이전 페이지로 이동
+    document.getElementById('restore').onclick = function () {
+        history.go(-1);
+    };
+</script>
 </body>
 </html>

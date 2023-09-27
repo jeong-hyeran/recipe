@@ -65,6 +65,9 @@
 	a:hover {
 		text-decoration: underline;
 	}
+	span{
+		cursor: pointer;
+	}
 </style>
 </head>
 <body>
