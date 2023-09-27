@@ -1,9 +1,6 @@
 package com.itbank.controller;
 
-
-import java.util.Arrays;
 import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,15 +47,28 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView("board/view");
 		BoardDTO dto = boardService.selectOne(idx);
 		
-		String[] content = dto.getContent().split(",");
-		List<String> contentList = Arrays.asList(content);
-		String[] fileName = dto.getFileName().split(",");
-		List<String> fileNameList = Arrays.asList(fileName);
+		List<String> contentList = boardService.getContentList(dto);
+		List<String> fileNameList = boardService.getFileNameList(dto);
 		
 		mav.addObject("dto",dto);
 		mav.addObject("contentList",contentList);
 		mav.addObject("fileNameList",fileNameList);
-		
+		System.out.println(fileNameList);
 		return mav;
 	}
+	
+	@GetMapping("/update/{idx}")
+	public ModelAndView update(@PathVariable("idx")int idx) {
+		ModelAndView mav = new ModelAndView("board/update");
+		BoardDTO dto = boardService.selectOne(idx);
+		
+		List<String> contentList = boardService.getContentList(dto);
+		List<String> fileNameList = boardService.getFileNameList(dto);
+		mav.addObject("dto", dto);
+		mav.addObject("contentList", contentList);
+		mav.addObject("fileNameList", fileNameList);
+		return mav;
+	}
+	
+	
 }

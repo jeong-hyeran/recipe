@@ -1773,3 +1773,17 @@
 2023-09-26 23:36:07,370 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
 2023-09-26 23:36:07,371 [Worker-14: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 2023-09-26 23:36:07,372 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-09-27 14:13:41,550 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-09-27 14:13:51,935 [Worker-2: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-09-27 14:13:51,950 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2023-09-27 14:13:52,001 [Worker-2: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-09-27 14:13:52,003 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-09-27 14:17:27,636 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-09-27 14:17:32,847 [Worker-20: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.itbank:recipe:1.0.0-BUILD-SNAPSHOT @ C:\Users\Á¤Çý¶õ\Desktop\project\recipe_project\recipe\pom.xml.
+2023-09-27 14:17:34,009 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-09-27 14:17:34,013 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2023-09-27 14:17:34,018 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-09-27 14:17:34,019 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-09-27 14:17:34,021 [Worker-20: Building workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of recipe
+2023-09-27 14:17:34,021 [Worker-20: Building workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for recipe
+2023-09-27 14:17:34,025 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!

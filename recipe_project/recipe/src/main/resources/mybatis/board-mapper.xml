@@ -28,13 +28,21 @@
 	        on m.idx = b.member_idx
 	        	order by b.idx desc
 	</select>
+	
 	<select id="maxIdx" resultType="int">
 		select
    			 max(idx) from board
     </select>
     
     <select id="selectOne" resultType="board">
-    	select * from board where idx = #{idx}
-    </select>
+    	select 
+		    b.*,
+		    m.userid as member_userid,
+		    m.fileName as member_fileName
+		    from board B
+		        join member m
+		        on m.idx = b.member_idx
+		        	where b.idx=#{idx}
+	    </select>
 	
 </mapper>

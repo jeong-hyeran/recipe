@@ -44,7 +44,7 @@
 	
 	function deleteHandler(event) {
 		const contents = document.getElementById('contents')
-		const div = contents.lastChild
+		const div = event.target.parentNode.parentNode
 		contents.removeChild(div)
 		renameHandler()
 		conRenameHandler()
