@@ -44,4 +44,12 @@ public class FileComponent {
 			dest.delete();
 		}
 	}
+
+	public void removeFile(String upload) {
+		File dest = new File(saveDirectory, upload);
+		if(dest.exists()) {
+			dest.delete();
+		}
+	
+	}
 }

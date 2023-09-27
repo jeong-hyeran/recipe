@@ -1,0 +1,30 @@
+package com.itbank.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.itbank.component.BoardFileComponent;
+import com.itbank.model.BoardDTO;
+import com.itbank.repository.BoardDAO;
+
+@Service
+public class BoardService {
+
+	@Autowired private BoardFileComponent fileComponent;
+	@Autowired private BoardDAO boardDAO;
+	public int insertBoard(BoardDTO dto) {
+		String fileName = fileComponent.upload(dto.getUpload());
+		dto.setFileName(fileName);
+		int idx = boardDAO.insertBoard(dto);
+		return idx;
+	}
+	public List<BoardDTO> selectAll() {
+		List<BoardDTO> list = boardDAO.selectAll();
+		return list;
+	}
+
+	
+	
+}

@@ -1,23 +1,64 @@
 package com.itbank.service;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.itbank.component.FileComponent;
+import com.itbank.component.BoardFileComponent;
 import com.itbank.model.BoardDTO;
 import com.itbank.repository.BoardDAO;
 
 @Service
 public class BoardService {
 
-	@Autowired private FileComponent fileComponent;
+	@Autowired private BoardFileComponent fileComponent;
 	@Autowired private BoardDAO boardDAO;
 	public int insertBoard(BoardDTO dto) {
-		String fileName = fileComponent.upload(dto.getUpload());
-		dto.setFileName(fileName);
-		int idx = boardDAO.insertBoard(dto);
+	
+		String s ="";
+		for (int i = 0; i < dto.getContents().size(); i++) {
+			s += dto.getContents().get(i);
+			if(i != dto.getContents().size() -1 ) {
+				s += ",";
+			}
+		}
+		System.out.println(s);
+		dto.setContent(s);
+		
+		String file ="";
+		for (int i = 0; i < dto.getUpload().size(); i++) {
+			String fileName = fileComponent.upload(dto.getUpload().get(i));
+			file += fileName;
+			if(i != dto.getContents().size() -1 ) {
+				file += ",";
+			}
+		}
+		System.out.println(file);
+		dto.setFileName(file);
+		
+		boardDAO.insertBoard(dto);
+		int idx = boardDAO.maxIdx();
 		return idx;
 	}
+	public List<BoardDTO> selectAll() {
+		List<BoardDTO> list = boardDAO.selectAll();
+		return list;
+	}
+	public BoardDTO selectOne(int idx) {
+		BoardDTO dto = boardDAO.selectOne(idx);
+	
+		String[] content = dto.getContent().split(",");
+		List<String> contentList = Arrays.asList(content);
+		String[] fileName = dto.getFileName().split(",");
+		List<String> fileNameList = Arrays.asList(fileName);
+		return dto;
+	}
+	
+	
+
 	
 	
 }

@@ -9,6 +9,45 @@
 <head>
 <meta charset="UTF-8">
 <title>recipe</title>
+<style>
+	table{
+		border : 2px solid black;
+		border-collapse: collapse;
+		margin: 10px auto;	
+		padding: 10px;
+	}
+	th{
+		background-color: #eee;
+		border: 1px solid black;
+		padding: 10px;
+	}
+	td{
+		border: 1px solid black;
+		padding: 10px;
+	}
+	textarea {
+		margin: 10px 5px;
+	}
+	#boardView{
+		margin: auto;
+	}
+	#boardTitle {
+		border: 1px solid #eee;
+		width: 800px;
+		padding: 5px 15px;
+		line-height: 2rem;
+		margin: 5px;
+		text-align: center;
+	}
+	#boardContent {
+		border: 1px solid #eee;
+		width: 800px;
+		padding: 15px;
+		line-height: 2rem;
+		margin: 5px;
+		text-align: center;
+	}
+</style>
 </head>
 <body>
 <h1><a href="${cpath }">recipe blog</a></h1>
@@ -35,7 +74,7 @@
 				<li><a href="${cpath }/board/write">글작성</a></li>
 				<!-- 드랍 메뉴 구현 할 수도? -->
 			</c:if>
-				<li><a href="${cpath }/board/write">레시피</a></li>
+				<li><a href="${cpath }/board/list">레시피</a></li>
 				<li><a href="${cpath }/review/list">댓글(구현 후 삭제)</a></li>
 		</ul>
 	</nav>
