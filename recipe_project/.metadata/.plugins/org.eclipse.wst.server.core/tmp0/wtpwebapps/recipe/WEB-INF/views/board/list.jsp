@@ -4,6 +4,15 @@
 <div id="boardList">
 <h3>글목록</h3>
 
+<div id="search">
+	<form method="POST" action="${cpath }/board/search">
+		<p>
+			<input type="search" name="keyword" placeholder="재료를 검색하세요" autofocus>
+			<input type="submit" value="검색">
+		</p>
+	</form>
+</div>
+
 <table>
 	<thead>
 	

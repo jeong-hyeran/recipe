@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0/EN"
+		"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itbank.repository.BoardDAO">
+	<insert id="insertBoard" parameterType="board">
+		insert into board (
+			member_idx, 
+			title, 
+			content, 
+			fileName 
+			) values (
+			#{member_idx}, 
+			#{title}, 
+			#{content}, 
+			#{fileName} 
+			)
+	</insert>
+	
+	<select id="selectAll" resultType="board">
+	select 
+	    b.*,
+	    m.username as member_username,
+	    m.fileName as member_fileName
+	    from board B
+	        join member m
+	        on m.idx = b.member_idx
+	        	order by b.idx desc
+	</select>
+	
+	<select id="maxIdx" resultType="int">
+		select
+   			 max(idx) from board
+    </select>
+    
+    <select id="selectOne" resultType="board">
+    	select 
+		    b.*,
+		    m.userid as member_userid,
+		    m.fileName as member_fileName
+		    from board B
+		        join member m
+		        on m.idx = b.member_idx
+		        	where b.idx=#{idx}
+	    </select>
+	    
+	<select id="search" resultType="board">
+		select 
+		      b.*,
+			    m.username as member_username
+		      from board b
+			        join member m
+			        on m.idx = b.member_idx
+		        where 
+		           content like '%${keyword}%' 
+		            or title like '%${keyword}%'
+		                 order by b.idx desc
+	</select>
+	<select id="excludeSearch" resultType="board">
+		select
+			    b.*,
+			    m.username as member_username
+			from
+			    board b
+			join
+			    member m on m.idx = b.member_idx
+			where
+			    (content like '%${keyword}%' or title like '%${keyword}%')
+			    and not (content like '%${excludekeyword}%' or title like '%${excludekeyword}%')
+			order by
+			    b.idx desc;
+	</select>	
+	
+</mapper>

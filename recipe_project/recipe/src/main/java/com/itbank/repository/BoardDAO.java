@@ -1,5 +1,6 @@
 package com.itbank.repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -16,5 +17,11 @@ public interface BoardDAO {
 	int maxIdx();
 
 	BoardDTO selectOne(int idx);
+
+	List<BoardDTO> search(String keyword);
+
+	List<BoardDTO> excludeSearch(HashMap<String, String> map);
+
+
 
 }

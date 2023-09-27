@@ -1,0 +1,72 @@
+drop sequence review_seq;
+drop sequence board_seq;
+drop sequence member_seq;
+
+drop table member cascade constraints purge;
+drop table board cascade constraints purge;
+drop table review cascade constraints purge;
+
+create sequence member_seq
+    start with 1
+    increment by 1
+    maxvalue 99999999999
+    nocache
+    nocycle;
+    
+create table member(
+    idx                 number          default member_seq.nextval primary key,
+    userid              varchar2(100)   not null unique,
+    userpw              varchar2(300)   not null,
+    username            varchar2(100)   not null,
+    email               varchar2(100)   not null,
+    fileName            varchar2(300)   default 'image.jpg',
+    salt                varchar2(100)   not null,
+    memo                varchar2(200)   default '안녕하세요'
+);
+
+create sequence board_seq
+    start with 1
+    increment by 1
+    maxvalue 99999999999
+    nocache
+    nocycle;
+
+create table board(
+    idx                 number          default board_seq.nextval primary key,
+    member_idx          number          not null,
+    title               varchar2(100)   not null,
+    content             varchar2(4000)  not null,
+    fileName            varchar2(300)   not null,
+    wdate               date            default sysdate,
+    viewCount           number          default 0,
+    likeCount           number          default 0,
+    
+    constraint board_member_fk
+    foreign key (member_idx)
+    references member(idx)
+);
+
+create sequence review_seq
+    start with 1
+    increment by 1
+    maxvalue 99999999
+    nocache
+    nocycle;
+    
+create table review(
+    idx                 number          default view_seq.nextval primary key,
+    member_idx          number          not null,
+    board_idx           number          not null,
+    re_content          varchar2(300)   not null,          
+    re_wdate            date            default sysdate,
+    re_likeCount        number          default 0,
+    re_fileName         varchar2(300),
+    
+    constraint review_member_fk
+    foreign key (member_idx)
+    references member(idx),
+    
+    constraint review_board_fk
+    foreign key (board_idx)
+    references board(idx)
+);

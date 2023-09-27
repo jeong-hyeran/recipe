@@ -47,6 +47,24 @@
 		margin: 5px;
 		text-align: center;
 	}
+	ul{
+		list-style: none;
+		display: flex;
+		padding: 5px 20px;
+		justify-content: space-around;
+		margin: 5px;
+	}
+	li{
+		margin: 5px;
+		padding: 5px;
+	}
+	a{
+		all : unset;
+		cursor: pointer;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
 </style>
 </head>
 <body>
@@ -79,3 +97,4 @@
 		</ul>
 	</nav>
 </header>
+<hr>
