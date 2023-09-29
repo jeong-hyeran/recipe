@@ -44,4 +44,13 @@ public class BoardFileComponent {
 			dest.delete();
 		}
 	}
+
+	public void removeFile(String fileName) {
+		File dest = new File(saveDirectory, fileName);
+		if(dest.exists()) {
+			System.out.println(dest.delete());
+			
+		}
+		
+	}
 }

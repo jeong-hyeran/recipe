@@ -8,28 +8,27 @@
 		insert into board (
 			member_idx, 
 			title, 
-			ingredient, 
+			ingr, 
 			content, 
 			fileName 
 			) values (
 			#{member_idx}, 
 			#{title}, 
-			#{ingredient}, 
+			#{ingr}, 
 			#{content}, 
 			#{fileName} 
 			)
 	</insert>
 	
-	<select id="selectAll" resultType="board">
-	select 
-	    b.*,
-	    m.username as member_username,
-	    m.fileName as member_fileName
-	    from board B
-	        join member m
-	        on m.idx = b.member_idx
-	        	order by b.idx desc
-	</select>
+   <select id="selectAll" resultType="board">
+   select 
+       b.*,
+       m.userid as member_userid
+       from board B
+           join member m
+           on m.idx = b.member_idx
+              order by b.idx desc
+   </select>
 	
 	<select id="maxIdx" resultType="int">
 		select
@@ -47,34 +46,77 @@
 		        	where b.idx=#{idx}
 	    </select>
 	    
+	    	
+	<update id="boardUpdate" parameterType="board">
+		update board
+			set content=#{content}, ingr=#{ingr}, fileName=#{fileName}, title=#{title}
+			where idx=#{idx}
+	</update>
+	
+	<delete id="boardDelete" parameterType="int">
+		delete board where idx=#{idx}
+	</delete>
+	
 	<select id="search" resultType="board">
 		select 
 		      b.*,
-			    m.username as member_username
+			    m.userid as member_userid
 		      from board b
 			        join member m
 			        on m.idx = b.member_idx
 		        where 
-		           content like '%${keyword}%' 
-		            or title like '%${keyword}%'
+		           ingr 
+		           like '%${keyword}%' 
 		                 order by b.idx desc
 	</select>
 	
-	<select id="excludeSearch" parameterType="hashMap" resultType="board">
+	<select id="searches" resultType="board">
+	    select 
+	        b.*,
+	        m.userid as member_userid
+	    from board b
+	    join member m
+	    on m.idx = b.member_idx
+	    where 
+	        <foreach collection="keywords" item="keyword" separator="and ">
+	        <!-- keywords의 배열을 반복하며 keyword를  'and'연산자로 합쳐준다. -->
+	            ingr like '%'|| #{keyword} || '%'
+	        </foreach>
+	    order by b.idx desc
+	</select>
+	
+	
+	<select id="excludeSearch" resultType="board">
+		select 
+		      b.*,
+			    m.userid as member_userid
+		      from board b
+			        join member m
+			        on m.idx = b.member_idx
+		        where 
+		           ingr not like '%${excludeKeyword}%' 
+		                 order by b.idx desc
+	</select>
+	
+	<select id="excludeSearchUP" parameterType="hashMap" resultType="board">
 		select
 		    b.*,
-		    m.username as member_username
+		    m.userid as member_userid
 		from
 		    board b
 		join
 		    member m 
 		    on m.idx = b.member_idx
 		where
-		    (content like '%${keyword}%' or title like '%${keyword}%')
-		    and not (content like '%${excludeKeyword}%' or title like '%${excludeKeyword}%')
+		    (ingr like '%${keyword}%')
+		    and not (ingr like '%${excludeKeyword}%')
 		order by
 		    b.idx desc
 	</select>
 	
+	<update id="viewCount" parameterType="int">
+		update board 
+			set viewCount = viewCount + 1 where idx = #{idx}
+	</update>
 	
 </mapper>

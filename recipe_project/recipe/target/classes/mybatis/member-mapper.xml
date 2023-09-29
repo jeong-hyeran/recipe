@@ -50,4 +50,14 @@
 	<delete id="memberDelete" parameterType="HashMap">
 		delete member where userid=#{userid}
 	</delete>
+	
+	<select id="selectBoardByIdx" parameterType="int" resultType="board">
+		select 
+			B.* 
+			from member M
+			join board B
+			on M.idx = B.member_idx
+			where M.idx=#{idx}
+			order by b.idx desc
+	</select>
 </mapper>

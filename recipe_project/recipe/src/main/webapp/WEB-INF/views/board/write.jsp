@@ -9,7 +9,7 @@
 
 <form method="POST" enctype="multipart/form-data">
 	<p><input type="text" name="title" placeholder="제목을 입력하세요" required autofocus></p>
-	<p><input type="text" name="ingredient" placeholder="재료을 입력하세요" required></p>
+	<p><input type="text" name="ingr" placeholder="재료을 입력하세요" required></p>
 	<div id="contents">
 		<div id="files">
 			<p>	

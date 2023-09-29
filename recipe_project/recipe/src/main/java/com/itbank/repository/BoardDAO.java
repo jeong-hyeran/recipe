@@ -17,10 +17,21 @@ public interface BoardDAO {
 	int maxIdx();
 
 	BoardDTO selectOne(int idx);
+	
+	int boardUpdate(BoardDTO dto);
+
+	int boardDelete(int idx);
 
 	List<BoardDTO> search(String keyword);
 
-	List<BoardDTO> excludeSearch(HashMap<String, String> map);
+	List<BoardDTO> excludeSearchUP(HashMap<String, String> map);
+
+	List<BoardDTO> excludeSearch(String excludeKeyword);
+
+	int viewCount(int idx);
+
+	List<BoardDTO> searches(String searchKeyword);
+
 
 
 

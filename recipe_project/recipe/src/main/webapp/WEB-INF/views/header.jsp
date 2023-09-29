@@ -10,6 +10,10 @@
 <meta charset="UTF-8">
 <title>recipe</title>
 <style>
+	body{
+		width: 1200px;
+		margin: auto;
+	}
 	table{
 		border : 2px solid black;
 		border-collapse: collapse;
@@ -31,21 +35,64 @@
 	#boardView{
 		margin: auto;
 	}
-	#boardTitle {
+	#boardIngr {
+		box-sizing:border-box;
 		border: 1px solid #eee;
 		width: 800px;
-		padding: 5px 15px;
-		line-height: 2rem;
+		padding: 5px;
 		margin: 5px;
 		text-align: center;
 	}
+
+	#boardTitle{
+		box-sizing:border-box;
+		border: 1px solid #eee;
+		width: 800px;
+		padding: 10px 20px;
+		height:80px;
+		margin: 5px;
+		text-align: center;
+		display: flex;
+	}
+	
+	#boardTitle > div:last-child {
+		padding-left: 5px;
+		font-weight: bold;
+		font-size: 1.5rem;
+		
+	}
+ 	#boardTitle > div{ 
+ 		margin: auto; 
+		padding: 0; 
+ 	} 
+ 	#boardTitle > div:first-child{
+ 		margin-right:2px; 
+ 	} 
+ 	#boardTitle > div:last-child{
+ 		margin-left:2px; 
+ 	} 
+	#boardTitle > div > a {
+		display: inline-block;
+		height: 10px;
+		font-size: 0.5rem;
+	}
+
+	#boardTitle > div > a > img{
+		border-radius:50%;
+		width: 40px;
+	}
+
 	#boardContent {
+		box-sizing:border-box;
 		border: 1px solid #eee;
 		width: 800px;
 		padding: 15px;
 		line-height: 2rem;
 		margin: 5px;
 		text-align: center;
+	}
+	#boardContent > div > img{
+		width: 400px;
 	}
 	ul{
 		list-style: none;
@@ -65,16 +112,41 @@
 	a:hover {
 		text-decoration: underline;
 	}
-	span{
-		cursor: pointer;
+	#restore{
+		font-size: 0.7rem;
+		font-weight: bold;
+	}
+	.boardSearch{
+		margin:5px 35px;
+	}
+	
+	.keyword{
+		margin:5px 35px;
+		display: flex;
+	}
+	.include, .exclude{
+		margin: 10px;
+		padding: 5px;
+		
+	}
+	.boardList{
+		box-sizing: border-box;
+		margin: auto;
+		padding: 10px 100px; 
+	}
+	.boardList > table{
+		width: 950px;
+	}	
+	.boardList > table > tbody > tr >  td:first-child{
+		text-align: center;
 	}
 </style>
 </head>
 <body>
-<h1><a href="${cpath }">recipe blog</a></h1>
+<h1><a href="${cpath }">Recipe Blog</a></h1>
 <p align="right">
 <c:if test="${empty login }">
-	방문해주셔서 감사합니다.
+	로그인이 필요합니다.
 </c:if>
 <c:if test="${not empty login }">
 	${login.userid } [${login.username }님]
